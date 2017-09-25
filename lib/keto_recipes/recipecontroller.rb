@@ -3,6 +3,7 @@ class RecipeController
 def call
   greeting
   recipe
+  goodbye
 end
 
 def greeting
