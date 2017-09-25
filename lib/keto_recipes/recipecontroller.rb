@@ -14,9 +14,9 @@ class RecipeController
   end
 
   def menu
-    puts "Enter the number of your selection or type 'exit' to quit:"
     input = nil
     while input != "exit"
+    puts "Enter the number of your selection or type 'exit' to quit. To access the list again, type list:"
     input = gets.strip
       case input
       when "1"
@@ -25,6 +25,10 @@ class RecipeController
         puts "recipe 2"
       when "3"
         puts "recipe 3"
+      when "list"
+        options_list
+      else
+        puts "Please type a valid entry. To leave the program type 'exit':"
       end
     end
   end
