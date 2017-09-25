@@ -2,33 +2,33 @@ class RecipeController
 
 def call
   greeting
-  options
   recipe
 end
 
 def greeting
-  puts "Feeling hungry today?(y/n) To quit this program, enter 'exit'"
+  puts "Hey there! What are you looking for?"
+  puts "1. Breakfast"
+  puts "2. Lunch"
+  puts "3. Dinner"
+end
+
+def recipe
 
   input = gets.strip
 
   case input
-  when "y"
-    options
-  when "exit"
-    goodbye
+  when "1"
+    puts "you should get a breakfast option"
+  when "2"
+    puts "how about lunch"
+  when "3"
+    puts "Dinner it is"
   end
 end
 
-def options
-  puts "test test test"
-end
-
-def recipe
-  #based on users input, will print Title and provide URL
-end
 
 def goodbye
-  puts "Come see us when you're feeling hungry again!!"
+  puts "Come back when you're feeling hungry again!!!"
 end
 
 end
