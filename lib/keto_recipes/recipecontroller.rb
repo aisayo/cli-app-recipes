@@ -4,24 +4,23 @@ def call
   greeting
   options
   recipe
-  goodbye
 end
 
 def greeting
-  puts "Feeling hungry today?(y/n)"
+  puts "Feeling hungry today?(y/n) To quit this program, enter 'exit'"
+
   input = gets.strip
 
   case input
   when "y"
     options
-  when "n"
-  else
+  when "exit"
+    goodbye
   end
-  # if yes, list options
 end
 
 def options
-  puts "1. Breakfast / 2.Lunch / 3.Dinner"
+  puts "test test test"
 end
 
 def recipe
