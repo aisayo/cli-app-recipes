@@ -4,4 +4,4 @@
  require "./lib/keto_recipes"
 
 
- RecipeController.new.call
+RecipeController.new.call

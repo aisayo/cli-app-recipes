@@ -1,3 +1,5 @@
+require 'pry'
+
 class Recipe
 
   attr_accessor :title, :category, :link
@@ -19,7 +21,9 @@ class Recipe
     dinner_recipe.category = "chicken"
     dinner_recipe.link = "url"
 
+    [breakfast_recipe, lunch_recipe, dinner_recipe]
 
+binding.pry
   end
 
 
