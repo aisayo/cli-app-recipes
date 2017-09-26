@@ -2,25 +2,31 @@ class Recipe
 
   attr_accessor :title, :category, :link
 
-  @@all = []
-
-  def self.info
-    c_recipe = self.new
-    c_recipe.title = "#name"
-    c_recipe.category = "chicken"
-    c_recipe.link = "url"
-
-    b_recipe = self.new
-    b_recipe.title = "#name"
-    b_recipe.category = "beef"
-    b_recipe.link = "url"
-
-  end
-
   def self.all
-    @@all << self.info
+
+    breakfast_recipe = self.new
+    breakfast_recipe.title = "#name"
+    breakfast_recipe.category = "beef"
+    breakfast_recipe.link = "url"
+
+    lunch_recipe = self.new
+    lunch_recipe.title = "#name"
+    lunch_recipe.category = "chicken"
+    lunch_recipe.link = "url"
+
+    dinner_recipe = self.new
+    dinner_recipe.title = "#name"
+    dinner_recipe.category = "chicken"
+    dinner_recipe.link = "url"
+
+
   end
 
+
+
+#category selector div.r-swiper-data
+#title : div.articleTitle
+#link : https://www.ruled.me/keto-recipes/
 
 
 end

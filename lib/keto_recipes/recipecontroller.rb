@@ -11,6 +11,8 @@ class RecipeController
     puts "1. Breakfast"
     puts "2. Lunch"
     puts "3. Dinner"
+
+    @recipes = Recipe.all
   end
 
   def menu
@@ -33,8 +35,17 @@ class RecipeController
     end
   end
 
+  def breakfast
+  end
+
+  def lunch
+  end
+
+  def dinner
+  end
+
   def goodbye
-    puts "Goodbye!"
+    puts "Come back and see us when you're hungry again ;)!"
   end
 
 
