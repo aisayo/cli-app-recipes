@@ -30,7 +30,7 @@ class Recipe
 
     dinner_recipe = self.new
     dinner_recipe.name = "#name"
-    dinner_recipe.category = "chicken"
+    dinner_recipe.category = "bleh"
     dinner_recipe.url = "url"
 
     [breakfast_recipe, lunch_recipe, dinner_recipe]
