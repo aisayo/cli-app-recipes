@@ -20,14 +20,15 @@ class RecipeController
     input = nil
 
     @recipes = Recipe.all
-    @recipes.each_with_index do |recipe, index|
-      selected_recipe = "#{index+1}. #{recipe.name} - #{recipe.category} - #{recipe.link}"
+    @recipes.each do |recipe|
+      recipe.each_with_index do |selected_recipe, index|
+      selected_recipe = "#{index+1}. #{selected_recipe.name} - #{selected_recipe.category} - #{selected_recipe.url}"
       puts selected_recipe
 
     while input != "exit"
     input = gets.strip
     if input.to_i.between?(1,3)
-      puts selected_recipe[input.to_i-1]
+      puts selected_recipe
     elsif input == "list"
       options_list
     else
@@ -35,6 +36,7 @@ class RecipeController
       end
     end
   end
+end
 end
 
 
