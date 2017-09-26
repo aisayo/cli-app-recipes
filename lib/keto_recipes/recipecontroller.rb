@@ -3,7 +3,7 @@ class RecipeController
 
   def call
     options_list
-    menu
+    list_recipes
     goodbye
   end
 
@@ -15,21 +15,23 @@ class RecipeController
     puts "Enter the number of your selection or type 'exit' to quit."
     end
 
-  def menu
+  def list_recipes
 
     input = nil
 
     @recipes = Recipe.info
-    @recipes.each do |recipe|
-      recipe.each do |selected_recipe, index|
-      selected_recipe = "#{index+1}. #{recipe.name} - #{recipe.url}"
-      binding.pry
-      puts selected_recipe
+    @recipes.each_with_index do |recipe, i|
+      recipe = "#{i}. #{recipe.name} - #{recipe.url}"
+      recipe
 
     while input != "exit"
     input = gets.strip
-    if input.to_i.between?(1,3)
-      puts selected_recipe
+    if input.to_i == 1
+      puts recipe[1]
+    elsif input.to_i == 2
+      puts recipe
+    elsif input.to_i == 3
+      puts recipe
     elsif input == "list"
       options_list
     else
@@ -37,7 +39,6 @@ class RecipeController
       end
     end
   end
-end
 end
 
 
