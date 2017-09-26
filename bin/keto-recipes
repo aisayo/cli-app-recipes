@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-
- require "./lib/keto_recipes"
+require "./lib/keto_recipes"
 
 
 RecipeController.new.call

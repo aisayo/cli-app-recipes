@@ -23,9 +23,8 @@ class Recipe
 
     [breakfast_recipe, lunch_recipe, dinner_recipe]
 
-binding.pry
-  end
 
+  end
 
 
 #category selector div.r-swiper-data

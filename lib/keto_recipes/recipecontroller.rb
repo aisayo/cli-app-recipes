@@ -1,3 +1,4 @@
+
 class RecipeController
 
   def call
@@ -13,6 +14,7 @@ class RecipeController
     puts "3. Dinner"
 
     @recipes = Recipe.all
+
   end
 
   def menu
@@ -20,15 +22,10 @@ class RecipeController
     while input != "exit"
     puts "Enter the number of your selection or type 'exit' to quit. To access the list again, type list:"
     input = gets.strip
-      case input
-      when "1"
-        puts "recipe 1"
-      when "2"
-        puts "recipe 2"
-      when "3"
-        puts "recipe 3"
-      when "list"
-        options_list
+    if input.to_i.between?(1, 3)
+      puts @recipes[input.to_i-1]
+    elsif input == "list"
+      options_list
       else
         puts "Please type a valid entry. To leave the program type 'exit':"
       end
