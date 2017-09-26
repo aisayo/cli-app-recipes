@@ -21,10 +21,8 @@ class RecipeController
 
     @recipes = Recipe.info
     @recipes.each do |recipe|
-      binding.pry
-
-      recipe.each_with_index do |selected_recipe, index|
-      selected_recipe = "#{index+1}. #{recipe.name} - #{recipe.category} - #{recipe.url}"
+      recipe.each do |selected_recipe, index|
+      selected_recipe = "#{index+1}. #{recipe.name} - #{recipe.url}"
       binding.pry
       puts selected_recipe
 
