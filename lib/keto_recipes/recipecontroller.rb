@@ -19,10 +19,13 @@ class RecipeController
 
     input = nil
 
-    @recipes = Recipe.all
+    @recipes = Recipe.info
     @recipes.each do |recipe|
+      binding.pry
+
       recipe.each_with_index do |selected_recipe, index|
-      selected_recipe = "#{index+1}. #{selected_recipe.name} - #{selected_recipe.category} - #{selected_recipe.url}"
+      selected_recipe = "#{index+1}. #{recipe.name} - #{recipe.category} - #{recipe.url}"
+      binding.pry
       puts selected_recipe
 
     while input != "exit"

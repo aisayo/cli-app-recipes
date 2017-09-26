@@ -4,20 +4,7 @@ class Recipe
 
   attr_accessor :name, :category, :url
 
-  @@all = []
-
-  def initialize
-    @name = name
-    @category = category
-    @url = url
-  end
-
-  def self.all
-    @@all << self.info
-  end
-
-
-  def self.info
+  def self.scraped_info
     breakfast_recipe = self.new
     breakfast_recipe.name = "#name"
     breakfast_recipe.category = "beef"
