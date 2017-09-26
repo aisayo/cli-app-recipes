@@ -1,4 +1,4 @@
-
+require 'pry'
 class RecipeController
 
   def call
@@ -20,8 +20,11 @@ class RecipeController
     input = nil
 
     @recipes = Recipe.all
-    @recipes.each_with_index do |recipe, index|
-      puts "'#{index+1}'. '#{recipe}'"
+    @recipes.each_with_index(1) do |recipe, index|
+      binding.pry
+
+      puts "'#{index-1}'. '#{recipe.name}' - '#{recipe.category}' - #{recipe.link}"
+
 
     while input != "exit"
     input = gets.strip
