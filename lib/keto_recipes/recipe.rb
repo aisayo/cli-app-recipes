@@ -18,6 +18,7 @@ class Recipe
     dinner_recipe.url = "url"
 
     [breakfast_recipe, lunch_recipe, dinner_recipe]
+
   end
 
 

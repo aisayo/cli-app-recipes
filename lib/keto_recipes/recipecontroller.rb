@@ -19,10 +19,11 @@ class RecipeController
 
     input = nil
 
-    @recipes = Recipe.info
-    @recipes.each_with_index do |recipe, i|
-      recipe = "#{i}. #{recipe.name} - #{recipe.url}"
+    recipes = Recipe.info
+    recipes.each_with_index do |recipe, i|
+      recipe = "#{i+1}. #{recipe.name} - #{recipe.url}"
       recipe
+      binding.pry
 
     while input != "exit"
     input = gets.strip
