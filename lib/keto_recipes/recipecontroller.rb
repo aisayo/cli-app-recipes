@@ -2,12 +2,12 @@ require 'pry'
 class RecipeController
 
   def call
-    options_list
+    list_categories
     list_recipes
     goodbye
   end
 
-  def options_list
+  def list_categories
     puts "What are you looking for?"
     puts "1. Breakfast"
     puts "2. Lunch"
@@ -20,15 +20,15 @@ class RecipeController
     input = nil
 
     recipes = Recipe.info
-    recipes.each_with_index do |recipe, i|
-      recipe = "#{i+1}. #{recipe.name} - #{recipe.url}"
+    recipes.each.with_index(1) do |recipe, i|
+      recipe = "#{i}. #{recipe.name} - #{recipe.url}"
+      binding.pry
       recipe
       binding.pry
-
     while input != "exit"
     input = gets.strip
     if input.to_i == 1
-      puts recipe[1]
+      puts recipe
     elsif input.to_i == 2
       puts recipe
     elsif input.to_i == 3

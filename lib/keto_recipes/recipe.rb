@@ -1,23 +1,33 @@
 require 'pry'
 
 class Recipe
+  attr_accessor :name, :post_date, :meal_type
 
-  attr_accessor :name, :url
+  @@all = []
 
-  def self.info
-    breakfast_recipe = self.new
-    breakfast_recipe.name = "#name 1"
-    breakfast_recipe.url = "url"
+  def self.all
+    @@all
+  end
 
-    lunch_recipe = self.new
-    lunch_recipe.name = "#name 2"
-    lunch_recipe.url = "url"
+  def save
+    @@all << self
+  end
 
-    dinner_recipe = self.new
-    dinner_recipe.name = "#name 3"
-    dinner_recipe.url = "url"
+  def self.scrape_info
 
-    [breakfast_recipe, lunch_recipe, dinner_recipe]
+    breakfast = self.new
+    breakfast.name = "#name 1"
+    breakfast.url = "url"
+
+    lunch = self.new
+    lunch.name = "#name 2"
+    lunch.url = "url"
+
+    dinner = self.new
+    dinner.name = "#name 3"
+    dinner.url = "url"
+
+    [breakfast, lunch, dinner]
 
   end
 
