@@ -1,7 +1,7 @@
 require 'pry'
 
-class Recipe
-  attr_accessor :name, :post_date, :meal_type
+class KetoRecipes::Recipe
+  attr_accessor :title, :post_date, :category
 
   @@all = []
 
@@ -16,21 +16,23 @@ class Recipe
   def self.scrape_info
 
     breakfast = self.new
-    breakfast.name = "#name 1"
-    breakfast.url = "url"
+    breakfast.title = "title"
+    breakfast.post_date = "date 1"
+    breakfast.category = "breakfast"
 
     lunch = self.new
-    lunch.name = "#name 2"
-    lunch.url = "url"
+    lunch.title = "title"
+    lunch.post_date = "date 2"
+    lunch.category = "lunch"
 
     dinner = self.new
-    dinner.name = "#name 3"
-    dinner.url = "url"
+    dinner.title = "title"
+    dinner.post_date = "date 3"
+    dinner.category = "dinner"
 
     [breakfast, lunch, dinner]
 
   end
-
 
 #category selector div.r-swiper-data
 #title : div.articleTitle
