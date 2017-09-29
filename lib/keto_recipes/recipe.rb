@@ -20,21 +20,39 @@ class KetoRecipes::Recipe
     @@all << self.scrape_info
   end
 
+  def self.find_recipe(i)
+    self.all[i.to_i - 1]
+  end
+
   def self.scrape_info
+    recipes = []
+
+     recipes << self.scrape_breakfast
+    # recipes << self.scrape_lunch
+    # recipes << self.scrape_dinner
+  end
+
+  def self.scrape_breakfast
+
+    doc = Nokogiri::HTML(open("https://ruled.me/keto-recipes/breakfast/"))
+    binding.pry
 
     breakfast = self.new("title", "date 1", "breakfast", "url")
 
-    lunch = self.new("title", "date 1", "lunch", "url")
-
-    dinner = self.new("title", "date 1", "dinner", "url")
-
-    [breakfast, lunch, dinner]
-
   end
+
+    # lunch = self.new("title", "date 2", "lunch", "url")
+    #
+    # dinner = self.new("title", "date 3", "dinner", "url")
+    #
+    # [breakfast, lunch, dinner]
+
+
 
 
 #category selector div.r-swiper-data
-#title : div.articleTitle
+#title : entry-title a href
 #link : https://www.ruled.me/keto-recipes/
+#post_date : "date published time"
 
 end

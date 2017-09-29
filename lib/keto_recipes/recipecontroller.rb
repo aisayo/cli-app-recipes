@@ -20,17 +20,13 @@ class KetoRecipes::RecipeController
   def list_recipes
 
     input = nil
-
     while input != "exit"
-    input = gets.strip
-    if input.to_i == 1
-      puts "1"
-    elsif input.to_i == 2
-      puts "2"
-    elsif input.to_i == 3
-      puts "3"
-    elsif input == "list"
+    input = gets.strip.downcase
+    if input == "list"
       list_categories
+    elsif input.to_i.between?(0, KetoRecipes::Recipe.all.size)
+    selected_recipe = KetoRecipes::Recipe.find_recipe(input)
+    puts "#{selected_recipe.title} - #{selected_recipe.post_date} - #{selected_recipe.url}"
     else
       puts "Please type a valid entry. To access the list again, type list or leave the program type 'exit':"
       end
