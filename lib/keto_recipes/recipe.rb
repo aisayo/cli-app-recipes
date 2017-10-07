@@ -1,14 +1,12 @@
 require 'pry'
 
 class KetoRecipes::Recipe
-  attr_accessor :title, :post_date, :category, :url
+  attr_accessor :title, :category
   @@all = []
 
-  def initialize(title, post_date, category, url)
+  def initialize(title, category)
     @title = title
-    @post_date = post_date
     @category = category
-    @url = url
     @@all << self
   end
 
@@ -28,31 +26,38 @@ class KetoRecipes::Recipe
     recipes = []
 
      recipes << self.scrape_breakfast
-    # recipes << self.scrape_lunch
-    # recipes << self.scrape_dinner
+     recipes << self.scrape_lunch
+     recipes << self.scrape_dinner
   end
 
   def self.scrape_breakfast
+    html = open("https://www.tasteaholics.com/recipes/low-carb-breakfast/")
+    doc = Nokogiri::HTML(html)
 
-    doc = Nokogiri::HTML(open("https://ruled.me/keto-recipes/breakfast/"))
-    binding.pry
-
-    breakfast = self.new("title", "date 1", "breakfast", "url")
-
+    title = doc.css("div.entry-title").text.gsub(/\t/, "")
+    category = doc.css("h1.title-heading-center").text
+    breakfast = self.new(title, category)
   end
 
-    # lunch = self.new("title", "date 2", "lunch", "url")
-    #
-    # dinner = self.new("title", "date 3", "dinner", "url")
-    #
-    # [breakfast, lunch, dinner]
+  def self.scrape_lunch
+    html = open("https://www.tasteaholics.com/recipes/low-carb-lunch/")
+    doc = Nokogiri::HTML(html)
 
+    title = doc.css("div.entry-title").text.gsub(/\t/, "")
+    category = doc.css("h1.title-heading-center").text
 
+    lunch = self.new(title, category)
+  end
 
+  def self.scrape_dinner
+    html = open("https://www.tasteaholics.com/recipes/low-carb-dinners/")
+    doc = Nokogiri::HTML(html)
 
-#category selector div.r-swiper-data
-#title : entry-title a href
-#link : https://www.ruled.me/keto-recipes/
-#post_date : "date published time"
+    title = doc.css("div.entry-title").text.gsub(/\t/, "")
+    category = doc.css("h1.title-heading-center").text
+
+    dinner = self.new(title, category)
+
+  end
 
 end

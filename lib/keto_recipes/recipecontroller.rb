@@ -11,6 +11,7 @@ class KetoRecipes::RecipeController
 
   def list_categories
     puts "What type of meal are you looking for?"
+    puts "If at anytime you would like to access the list again, type list or leave the program type 'exit':"
     KetoRecipes::Recipe.all.each.with_index(1) do |recipe, i|
       puts "#{i}. #{recipe.category}"
     end
@@ -25,10 +26,10 @@ class KetoRecipes::RecipeController
     if input == "list"
       list_categories
     elsif input.to_i.between?(0, KetoRecipes::Recipe.all.size)
-    selected_recipe = KetoRecipes::Recipe.find_recipe(input)
-    puts "#{selected_recipe.title} - #{selected_recipe.post_date} - #{selected_recipe.url}"
+    selected_category = KetoRecipes::Recipe.find_recipe(input)
+    puts "#{selected_category.title}"
     else
-      puts "Please type a valid entry. To access the list again, type list or leave the program type 'exit':"
+      puts "Please type a valid entry. "
       end
     end
   end
