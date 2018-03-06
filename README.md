@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To start the application, from your terminal type $ bin/keto-recipes
 
 ## Development
 
